@@ -5,13 +5,13 @@
 .calendar_nav {
   display: flex;
   justify-content: space-between;
-  height: 20px;
+  height: 30px;
   padding: 10px 0;
   background-color: #f1f1f1;
 }
 .btn {
   border: none;
-  padding: 10px;
+  padding: 0 10px;
   background-color: transparent;
 }
 .title {
@@ -23,7 +23,7 @@
   grid-template-rows: repeat(6, 1fr);
 }
 .month_days {
-  padding: 8px 0px;
+  padding: 8px;
   border: 1px solid #f1f1f1;
   border-left: none;
   border-top: none;
