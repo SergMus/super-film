@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #f4f4f4;
+  color: #656565;
+  margin: 0 auto;
+}
+.btn {
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
