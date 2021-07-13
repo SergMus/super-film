@@ -1,5 +1,5 @@
 .calendar {
-  flex: 0 1;
+  flex: 1 0 auto;
   margin-top: auto;
 }
 .calendar_nav {
@@ -23,7 +23,7 @@
   grid-template-rows: repeat(6, 1fr);
 }
 .month_days {
-  padding: 8px;
+  padding: 10px 8px;
   border: 1px solid #f1f1f1;
   border-left: none;
   border-top: none;
