@@ -69,7 +69,7 @@ const NextDay = ({ date }) => {
         {items.map((item, i, arr) => {
           !isActive ? (arr.length = 8) : (arr.length = 34);
           return (
-            <div className={styles.film_wrapper} key={item.show.id}>
+            <div className={styles.film_wrapper} key={i}>
               <div className={styles.image_wrapper}>
                 <img
                   className={styles.image}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./../../components/Calendar/Calendar.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -115,9 +115,14 @@ const Calendar = () => {
                 pathname: "/films",
                 state: { date: currentDate, month: monthNames[months] },
               }}
+              key={index}
               style={{ textDecoration: "none" }}
             >
-              <div className={styles.month_days} key={index} onClick={showData}>
+              <div
+                className={styles.month_days}
+                key={new Date()}
+                onClick={showData}
+              >
                 {item.count}
               </div>
             </NavLink>
