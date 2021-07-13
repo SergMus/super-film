@@ -59,7 +59,7 @@ const NextDay = ({ date }) => {
   if (error) {
     return <div>Ошибка: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Загрузка...</div>;
+    return <div></div>;
   } else {
     return (
       <div className={styles.container}>
