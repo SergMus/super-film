@@ -1,5 +1,5 @@
 .calendar {
-  flex: 1;
+  flex: 0 1;
   margin-top: auto;
 }
 .calendar_nav {
