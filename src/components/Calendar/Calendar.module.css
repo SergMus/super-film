@@ -11,6 +11,7 @@
 .btn {
   border: none;
   padding: 0 10px;
+  background-color: transparent;
 }
 .title {
   font-weight: 600;
