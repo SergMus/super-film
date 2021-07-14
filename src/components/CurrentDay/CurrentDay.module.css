@@ -17,6 +17,9 @@
   max-height: 100px;
   margin-bottom: 10px;
 }
+.film_wrapper:hover {
+  box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+}
 .image_wrapper {
   width: 25%;
   margin-right: 10px;
