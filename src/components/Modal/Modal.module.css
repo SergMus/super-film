@@ -1,0 +1,29 @@
+.modal_window {
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  z-index: 100;
+}
+
+.modal_image_wrapper {
+  position: relative;
+}
+.modal_image_wrapper::after {
+  position: absolute;
+  font-size: 2rem;
+  content: "\2716";
+  top: 10px;
+  right: 15px;
+  color: white;
+}
+.modal_image {
+  max-height: 80vh;
+  width: auto;
+}

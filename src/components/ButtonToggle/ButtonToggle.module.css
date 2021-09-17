@@ -1,0 +1,16 @@
+.btn_more_wrapper {
+  display: flex;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+.btn_more {
+  flex: 1;
+  padding: 10px 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  border: none;
+  background-color: rgba(108, 117, 125, 1);
+  border-radius: 5px;
+  cursor: pointer;
+}

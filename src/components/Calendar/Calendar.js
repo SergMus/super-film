@@ -1,42 +1,32 @@
 import React, { useState } from "react";
 import styles from "./../../components/Calendar/Calendar.module.css";
 import { NavLink } from "react-router-dom";
+import helpers from "../../helpers";
 
 const Calendar = () => {
   const date = new Date();
   date.setDate(1);
-  const monthNames = [
-    "Январь",
-    "Февраль",
-    "Март",
-    "Апрель",
-    "Май",
-    "Июнь",
-    "Июль",
-    "Август",
-    "Сентябрь",
-    "Октябрь",
-    "Ноябрь",
-    "Декабрь",
-  ];
+  const monthNames = helpers.calendar.monthsTable;
+  const days = [];
 
   const [currentDate, setCurrentDate] = useState(date);
   const [months, setMonths] = useState(currentDate.getMonth());
+  const [year, setYear] = useState(currentDate.getFullYear());
+
   const daysCountInMonth = new Date(
     currentDate.getFullYear(),
     months + 1,
     0
   ).getDate();
-  const [year, setYear] = useState(currentDate.getFullYear());
+
   const firstDayIndex = currentDate.getDay();
-  console.log(firstDayIndex);
+
   const prevLastDay = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
     0
   ).getDate();
-  console.log(prevLastDay);
-  const days = [];
+
   const monthDays = () => {
     for (
       let x = (firstDayIndex === 0 ? firstDayIndex + 7 : firstDayIndex) - 1;

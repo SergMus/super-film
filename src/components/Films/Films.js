@@ -1,6 +1,5 @@
 import React from "react";
-import CurrentDay from "../CurrentDay/CurrentDay";
-import NextDay from "../NextDay/NextDay";
+import Day from "../Day/Day";
 
 const Films = ({
   location: {
@@ -9,8 +8,20 @@ const Films = ({
 }) => {
   return (
     <>
-      <CurrentDay date={date} />
-      <NextDay date={date} />
+      <Day
+        date={date}
+        showMore={"Еще 32 сериала"}
+        showLess={"Свернуть обратно"}
+        count={2}
+        chooseDay={0}
+      />
+      <Day
+        date={date}
+        showMore={"Развернуть"}
+        showLess={"Показать основные"}
+        count={8}
+        chooseDay={1}
+      />
     </>
   );
 };

@@ -13,6 +13,7 @@
   border: none;
   padding: 0 10px;
   background-color: transparent;
+  cursor: pointer;
 }
 .title {
   font-weight: 600;
@@ -32,6 +33,7 @@
   align-items: center;
   color: rgba(47, 47, 48);
   font-weight: 400;
+  background-color: white;
 }
 .prev_next_days {
   color: rgba(47, 47, 48, 0.3);
