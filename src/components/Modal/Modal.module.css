@@ -27,3 +27,10 @@
   max-height: 80vh;
   width: auto;
 }
+
+@media screen and (max-width: 578px) {
+  .modal_image {
+    max-width: 90vw;
+    height: auto;
+  }
+}

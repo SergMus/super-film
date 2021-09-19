@@ -28,7 +28,6 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
     g.modal = true;
     setItems([...items.slice(0, index), g, ...items.slice(index + 1)]);
   };
-  console.log(items);
 
   useEffect(() => {
     fetch(
