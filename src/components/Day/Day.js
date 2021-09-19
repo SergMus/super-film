@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import helpers from "../../helpers";
 import ButtonToggle from "../ButtonToggle/ButtonToggle";
 import Modal from "../Modal/Modal";
@@ -19,7 +18,9 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
   const showModal = (e) => {
     e.stopPropagation();
     let index = items.findIndex(
-      (item) => item.id === +e.target.parentNode.parentNode.id
+      (item) =>
+        item.id ===
+        (+e.target.parentNode.parentNode.id || +e.target.parentNode.id)
     );
 
     let g = items[index];
@@ -60,7 +61,6 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
         {items.map((item, i, arr) => {
           !isActive ? (arr.length = count) : (arr.length = 34);
           return (
-            // <Link to={item.url} target="_blank">
             <div
               className={styles.film_wrapper}
               key={item.id}
@@ -103,7 +103,6 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
                 <Modal item={item} items={items} setItems={setItems} />
               ) : null}
             </div>
-            // </Link>
           );
         })}
 

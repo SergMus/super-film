@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useScrollToTop = (initialValue = false) => {
+export const UseScrollToTop = (initialValue = false) => {
   const [scrollToTop, setScrollToTop] = useState(initialValue);
 
   useEffect(() => {
