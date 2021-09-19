@@ -8,7 +8,8 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  // const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [countPerPage, setCountPerPage] = useState(count);
 
   const monthNames = helpers.currentDay.monthsTable;
   let day = date.getDate() + chooseDay;
@@ -47,7 +48,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
           setError(error);
         }
       );
-  }, [items.length, date, day, year]);
+  }, [isActive, date, day, year]);
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;
@@ -59,60 +60,65 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
         <div className={styles.title}>
           {day} {month} {year}
         </div>
-        {items.map((item, i, arr) => {
-          // !isActive ? (arr.length = count) : (arr.length = 34);
-          return (
-            <div
-              className={styles.film_wrapper}
-              key={item.id}
-              id={item.id}
-              onClick={() => window.open(item.url, "_blank")}
-            >
-              <div className={styles.image_wrapper} onClick={showModal}>
-                <img
-                  className={styles.image}
-                  src={
-                    item.show.image
-                      ? item.show.image.medium
-                      : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Video-film.svg/284px-Video-film.svg.png"
-                  }
-                  alt=""
-                />
-              </div>
-              <div className={styles.film_content}>
-                <div className={styles.film_content_name}>{item.show.name}</div>
-                <div className={styles.film_content_year}>
-                  {item.show.premiered.slice(0, 4)}
+        {items
+          .filter((item, i) => i <= countPerPage)
+          .map((item) => {
+            return (
+              <div
+                className={styles.film_wrapper}
+                key={item.id}
+                id={item.id}
+                onClick={() => window.open(item.url, "_blank")}
+              >
+                <div className={styles.image_wrapper} onClick={showModal}>
+                  <img
+                    className={styles.image}
+                    src={
+                      item.show.image
+                        ? item.show.image.medium
+                        : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Video-film.svg/284px-Video-film.svg.png"
+                    }
+                    alt=""
+                  />
                 </div>
-                <div className={styles.film_content_rating}>
-                  Rating:{" "}
-                  <i
-                    className="fas fa-star"
-                    style={{ color: "#EFC35A", marginRight: "3px" }}
-                  ></i>
-                  <b>{item.show.rating.average}</b>
+                <div className={styles.film_content}>
+                  <div className={styles.film_content_name}>
+                    {item.show.name}
+                  </div>
+                  <div className={styles.film_content_year}>
+                    {item.show.premiered.slice(0, 4)}
+                  </div>
+                  <div className={styles.film_content_rating}>
+                    Rating:{" "}
+                    <i
+                      className="fas fa-star"
+                      style={{ color: "#EFC35A", marginRight: "3px" }}
+                    ></i>
+                    <b>{item.show.rating.average}</b>
+                  </div>
+                  <div
+                    className={styles.film_content_summary}
+                    dangerouslySetInnerHTML={{ __html: item.show.summary }}
+                  ></div>
+                  <button className={styles.film_content_btn}>
+                    Сезон: {item.season}
+                  </button>
                 </div>
-                <div
-                  className={styles.film_content_summary}
-                  dangerouslySetInnerHTML={{ __html: item.show.summary }}
-                ></div>
-                <button className={styles.film_content_btn}>
-                  Сезон: {item.season}
-                </button>
+                {item.modal ? (
+                  <Modal item={item} items={items} setItems={setItems} />
+                ) : null}
               </div>
-              {item.modal ? (
-                <Modal item={item} items={items} setItems={setItems} />
-              ) : null}
-            </div>
-          );
-        })}
+            );
+          })}
 
-        {/* <ButtonToggle
+        <ButtonToggle
           setIsActive={setIsActive}
           isActive={isActive}
           showMore={showMore}
           showLess={showLess}
-        /> */}
+          count={count}
+          setCountPerPage={setCountPerPage}
+        />
       </div>
     );
   }

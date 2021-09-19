@@ -1,13 +1,22 @@
 import React from "react";
 import styles from "./../ButtonToggle/ButtonToggle.module.css";
 
-const ButtonToggle = ({ setIsActive, isActive, showMore, showLess }) => {
+const ButtonToggle = ({
+  setIsActive,
+  isActive,
+  showMore,
+  showLess,
+  count,
+  setCountPerPage,
+}) => {
   const activate = () => {
     setIsActive(true);
+    setCountPerPage(34);
   };
 
   const deActivate = () => {
     setIsActive(false);
+    setCountPerPage(count);
   };
   return (
     <div className={styles.btn_more_wrapper}>
