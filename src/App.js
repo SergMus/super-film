@@ -7,21 +7,21 @@ import "./App.css";
 // import { UseScrollToTop } from "./utils";
 
 export default function App() {
-  const [offset, setOffset] = useState(0);
+  // const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    window.onscroll = () => {
-      setOffset(window.pageYOffset);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onscroll = () => {
+  //     setOffset(window.pageYOffset);
+  //   };
+  // }, []);
 
-  const pageUp = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+  // const pageUp = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <BrowserRouter>
@@ -39,7 +39,7 @@ export default function App() {
             </Switch>
           </main>
         </div>
-        {offset > 150 ? <div className="toTop" onClick={pageUp}></div> : null}
+        {/* {offset > 150 ? <div className="toTop" onClick={pageUp}></div> : null} */}
       </div>
     </BrowserRouter>
   );

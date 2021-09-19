@@ -27,6 +27,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
     g.modal = true;
     setItems([...items.slice(0, index), g, ...items.slice(index + 1)]);
   };
+  console.log(items);
 
   useEffect(() => {
     fetch(
@@ -46,7 +47,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
           setError(error);
         }
       );
-  }, []);
+  }, [items.length, date, day, year]);
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;
