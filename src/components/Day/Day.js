@@ -46,7 +46,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
           setError(error);
         }
       );
-  }, [items.length]);
+  }, [items.length, date, day, year]);
 
   if (error) {
     return <div>Ошибка: {error.message}</div>;
