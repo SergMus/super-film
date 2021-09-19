@@ -8,7 +8,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
   const monthNames = helpers.currentDay.monthsTable;
   let day = date.getDate() + chooseDay;
@@ -60,7 +60,7 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
           {day} {month} {year}
         </div>
         {items.map((item, i, arr) => {
-          !isActive ? (arr.length = count) : (arr.length = 34);
+          // !isActive ? (arr.length = count) : (arr.length = 34);
           return (
             <div
               className={styles.film_wrapper}
@@ -107,12 +107,12 @@ const Day = ({ date, showMore, showLess, count, chooseDay }) => {
           );
         })}
 
-        <ButtonToggle
+        {/* <ButtonToggle
           setIsActive={setIsActive}
           isActive={isActive}
           showMore={showMore}
           showLess={showLess}
-        />
+        /> */}
       </div>
     );
   }
